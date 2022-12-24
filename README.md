@@ -171,9 +171,12 @@ int factorial(int n)
 
 #### String function [require string.h]
 
-```c
-strcmp(s1, s2) // compare two Strings
-strlen(str) // length of string
+```c 
+// compare two Strings (0 or 1)
+int cmp = strcmp(s1, s2);
+
+// length of string
+int len = strlen(str); 
 ```
 
 #### Length of String w/o string.h
