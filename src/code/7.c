@@ -10,9 +10,11 @@ int main()
         {
             printf(" ");
         }
-        for (j = i; j < 5; j++)
+        char ch = 'A';
+        for (int j = i; j < 5; j++)
         {
-            printf("%c", 'A' + j);
+            printf("%c", ch);
+            ch++;
         }
         printf("\n");
     }
