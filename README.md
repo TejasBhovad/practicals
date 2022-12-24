@@ -32,6 +32,187 @@
 26. [Structure-1](/src/documentation/26.md)
 27. [Structure-2](/src/documentation/27.md)
 
+## Things to Remember:
+
+#### Adding spaces to Patterns:
+
+```
+ *****
+  ****
+   ***
+    **
+     *
+```
+
+```c
+for (j = 1; j <=i; j++)
+        {
+            printf(" ");
+        }
+```
+
+<br>
+
+```
+     *
+    **
+   ***
+  ****
+ *****
+```
+
+```c
+for (j = 1; j <= 5 - i; j++)
+        {
+            printf(" ");
+        }
+```
+
+#### Pascal's Triangle
+
+```c
+    for (i = 0; i < rows; i++)
+    {
+        // Print leading spaces
+        for (j = 0; j < rows - i - 1; j++)
+        {
+            printf(" ");
+        }
+        // Print numbers in the row
+        int n = 1;
+        for (j = 0; j <= i; j++)
+        {
+            printf("%d ", n);
+            n = n * (i - j) / (j + 1);
+        }
+        printf("\n");
+    }
+
+
+```
+
+#### Prime Factors
+
+```c
+while (number % 2 == 0)
+        {
+            printf("2 ");
+            number /= 2;
+        }
+        for (i = 3; i <= sqrt(number); i += 2)
+        {
+            while (number % i == 0)
+            {
+                printf("%d ", i);
+                number /= i;
+            }
+        }
+        if (number > 2)
+        {
+            printf("%d", number);
+        }
+        printf("\n");
+```
+
+#### Sine series
+
+```c
+sum += term;
+term *= -(x * x) / (2 * i * (2 * i + 1));
+```
+
+#### Sort
+
+```c
+for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            if (ar[i] > ar[j])
+            {
+                tmp = ar[j];
+                ar[j] = ar[i];
+                ar[i] = tmp;
+            }
+        }
+    }
+```
+
+#### Recursive function to find factorial
+
+```c
+int factorial(int n)
+{
+    if (n == 0)
+    {
+        return 1;
+    }
+    else
+    {
+        return n * factorial(n - 1);
+    }
+}
+```
+
+#### Fibonacci Logic
+
+```c
+    int a=0,b=1;
+    printf("%d ", a);
+    printf("%d ", b);
+    for (i = 2; i < n; i++)
+    {
+        c = a + b;
+        printf("%d ", c);
+        a = b;
+        b = c;
+    }
+```
+
+#### String function [require string.h]
+
+```c
+strcmp(s1, s2) // compare two Strings
+strlen(str) // length of string
+```
+
+#### Length of String w/o string.h
+
+```c
+for (n = 0; s[n] != '\0'; n++);
+// where s is the string
+// and n is the length
+```
+
+#### String input with spaces
+
+```c
+scanf(" %[^\n]s", var_name);
+```
+
+#### Structure Syntax
+
+```c
+// Declaring before main() and after header files
+struct str_name
+{
+    int property_1;
+    char property_2[10];
+}
+
+// In Main Method
+int main()
+{
+    // creating an array of structure
+    struct str_name obj_name[10];
+
+    // Accessing elements
+    int tmp = obj_name[i].property_1
+}
+```
+
+<br>
+
 ## How to Compile
 
 #### 1. Using TurboC
@@ -66,3 +247,5 @@ gcc compiler can compile and run C files, here are the steps
 - Install VS code - https://code.visualstudio.com/download
 - [Linux/mac] Install code runner Extension after installing VS code from [here](https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner)
 - If you are on windows refer to this [tutorial](https://www.youtube.com/watch?v=oaebkkOP2Qg)
+
+<br>
