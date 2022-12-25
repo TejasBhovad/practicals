@@ -238,11 +238,11 @@ gcc compiler can compile and run C files, here are the steps
 
 4. Edit the `hello.c` file
 
-5. `gcc hello.c -o out` - compile the 'hello.c' file in out
+5. `gcc hello.c -o out` - compile the 'hello.c' file in out [add `-lm` for math functions]
 
 6. `./out` - run c file
 
-**Note:** Everytime the `.c` File is edied and saved it needs to b recompiled
+**Note:** Every time the `.c` File is edited and saved it needs to be recompiled
 
 #### 4. VS Code [Recommended]
 
