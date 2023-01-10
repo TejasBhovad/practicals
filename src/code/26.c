@@ -1,39 +1,18 @@
 #include <stdio.h>
 #include <string.h>
 
-#define N 10 // Number of players
+#define N 3 // Number of players
 
 // Football structure for a player
-typedef struct
+struct Football
 {
     char name[100];
     char country[100];
     int goals;
-} Football;
-
-// Function to sort the players according to goals
-void sort_players(Football players[], int n)
-{
-    for (int i = 0; i < n - 1; i++)
-    {
-        int min_index = i;
-        for (int j = i + 1; j < n; j++)
-        {
-            if (players[j].goals < players[min_index].goals)
-            {
-                min_index = j;
-            }
-        }
-        // Swap the players at indices i and min_index
-        Football temp = players[i];
-        players[i] = players[min_index];
-        players[min_index] = temp;
-    }
-}
-
+};
 int main()
 {
-    Football players[N];
+    struct Football players[N];
 
     // Read in player details
     for (int i = 0; i < N; i++)
@@ -46,18 +25,22 @@ int main()
         printf("Goals: ");
         scanf("%d", &players[i].goals);
     }
-
-    // Sort the players according to goals
-    sort_players(players, N);
-
-    // Display the sorted player details
-    printf("Sorted player details:\n");
+    int tmp = 0, index;
+    // Find highest Scorer
     for (int i = 0; i < N; i++)
     {
-        printf("Name: %s\n", players[i].name);
-        printf("Country: %s\n", players[i].country);
-        printf("Goals: %d\n", players[i].goals);
+        if (players[i].goals > tmp)
+        {
+            tmp = players[i].goals;
+            index = i;
+        }
     }
+
+    // Display the sorted player details
+    printf("Highest Scorer details:\n");
+    printf("Name: %s\n", players[index].name);
+    printf("Country: %s\n", players[index].country);
+    printf("Goals: %d\n", players[index].goals);
 
     return 0;
 }
