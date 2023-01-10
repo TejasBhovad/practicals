@@ -1,14 +1,14 @@
 #include <stdio.h>
 #include <string.h>
 
-#define N 10 // Number of employees
+#define N 3 // Number of employees
 
 // Employee structure
 typedef struct
 {
     int id;
     char name[100];
-    int goals;
+    int salary;
 } Employee;
 
 int main()
@@ -23,25 +23,41 @@ int main()
         scanf("%d", &employees[i].id);
         printf("Name: ");
         scanf("%s", employees[i].name);
-        printf("Goals: ");
-        scanf("%d", &employees[i].goals);
+        printf("Salary: ");
+        scanf("%d", &employees[i].salary);
     }
 
     // Find the highest goal scorer
     int max_index = 0;
-    for (int i = 1; i < N; i++)
+    for (int i = 0; i < N; i++)
     {
-        if (employees[i].goals > employees[max_index].goals)
+        for (int j = 0; j < N; j++)
         {
-            max_index = i;
+            if (employees[i].salary > employees[j].salary)
+            {
+                int tmp = employees[i].salary;
+                employees[i].salary = employees[i + 1].salary;
+                employees[i + 1].salary = tmp;
+
+                int tmp1 = employees[i].id;
+                employees[i].id = employees[i + 1].id;
+                employees[i + 1].id = tmp1;
+
+                char tmp2[100];
+                strcpy(tmp2, employees[i].name);
+                strcpy(employees[i].name, employees[i + 1].name);
+                strcpy(employees[i + 1].name, tmp2);
+            }
         }
+
+        printf("\nAfter Sorting:\n");
+        for (int i = 0; i < N; i++)
+        {
+            printf("ID: %d\n", employees[i].id);
+            printf("Name: %s\n", employees[i].name);
+            printf("Salary: %d\n\n", employees[i].salary);
+        }
+
+        return 0;
     }
-
-    // Display the details of the highest goal scorer
-    printf("Highest goal scorer:\n");
-    printf("ID: %d\n", employees[max_index].id);
-    printf("Name: %s\n", employees[max_index].name);
-    printf("Goals: %d\n", employees[max_index].goals);
-
-    return 0;
 }
